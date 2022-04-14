@@ -1,30 +1,37 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('./auth/events.js')
+const subEvents = require('./sub/events.js')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const $mainNav = $('.main-nav')
 const $userModal = $('.user-modal')
-const $loginForm = $userModal.find('#login')
+const $signinForm = $userModal.find('#signin')
 const $signupForm = $userModal.find('#signup')
+const $changePwForm = $userModal.find('#changePw')
 // const $forgotPasswordForm = $userModal.find('#reset-password')
 const $switchTab = $('.switcher')
-const $loginTab = $switchTab.children('li').eq(0).children('a')
-const $signUpTab = $switchTab.children('li').eq(1).children('a')
-// const $forgotPasswordLink = $loginForm.find('.form-bottom-message a')
+const $signinTab = $switchTab.children('li').eq(0).children('a')
+const $signupTab = $switchTab.children('li').eq(1).children('a')
+const $changePwTab = $switchTab.children('li').eq(2).children('a')
+// const $forgotPasswordLink = $signinForm.find('.form-bottom-message a')
 // const $backToLoginLink = $forgotPasswordForm.find(
 //   '.form-bottom-message a'
 // )
 
-const $mainNav = $('.main-nav')
-
 $(() => {
-  // your JS code goes here
+  // Auth events
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('.signout').on('click', authEvents.onSignOut)
+  $('#change-pw-form').on('submit', authEvents.onChangePassword)
+
+  // Sub events
+  $('#create-new-sub').on('submit', subEvents.onCreateSub)
 
   // open modal
-  $mainNav.on('click', function (event) {
+  $('.signin, .signup, .changePw').on('click', function (event) {
     if ($(event.target).is($mainNav)) {
       // on mobile open the submenu
       $(this).children('ul').toggleClass('is-visible')
@@ -34,7 +41,13 @@ $(() => {
       // show modal layer
       $userModal.addClass('is-visible')
       // show the selected form
-      $(event.target).is('.signup') ? signupTabSelected() : loginTabSelected()
+      $(event.target).is('.signup') ? signupTabSelected() : signinTabSelected()
+      if ($(event.target).is('.changePw')) {
+        $changePwTab.show()
+        $signupTab.hide()
+        $signinTab.hide()
+        changePwTabSelected()
+      }
     }
   })
 
@@ -48,53 +61,39 @@ $(() => {
   // switch from a tab to another
   $switchTab.on('click', function (event) {
     event.preventDefault()
-    $(event.target).is($loginTab) ? loginTabSelected() : signupTabSelected()
+    if ($(event.target).is($signinTab)) {
+      signinTabSelected()
+    } if ($(event.target).is($signupTab)) {
+      signupTabSelected()
+    } if ($(event.target).is($changePwTab)) {
+      changePwTabSelected()
+    }
   })
 
-  // hide or show password
-  // $('.hide-password').on('click', function () {
-  //   const $this = $(this)
-  //   const $passwordField = $this.prev('input')
-
-  //   $passwordField.attr('type') == 'password'
-  //     ? $passwordField.attr('type', 'text')
-  //     : $passwordField.attr('type', 'password')
-  //   $this.text() == 'Hide' ? $this.text('Show') : $this.text('Hide')
-  //   // focus and move cursor to the end of input field
-  //   $passwordField.putCursorAtEnd()
-  // })
-
-  // // show forgot-password form
-  // $forgotPasswordLink.on('click', function (event) {
-  //   event.preventDefault()
-  //   forgot_password_selected()
-  // })
-
-  // // back to login from the forgot-password form
-  // $backToLoginLink.on('click', function (event) {
-  //   event.preventDefault()
-  //   loginTabSelected()
-  // })
-
-  function loginTabSelected () {
-    $loginForm.addClass('is-selected')
+  function signinTabSelected () {
+    $signinForm.addClass('is-selected')
     $signupForm.removeClass('is-selected')
-    // $forgotPasswordForm.removeClass('is-selected')
-    $loginTab.addClass('selected')
-    $signUpTab.removeClass('selected')
+    $changePwForm.removeClass('is-selected')
+    $signinTab.addClass('selected')
+    $signupTab.removeClass('selected')
+    $changePwTab.hide()
+    $signupTab.show()
+    $signinTab.show()
   }
 
   function signupTabSelected () {
-    $loginForm.removeClass('is-selected')
     $signupForm.addClass('is-selected')
-    // $forgotPasswordForm.removeClass('is-selected')
-    $loginTab.removeClass('selected')
-    $signUpTab.addClass('selected')
+    $signinForm.removeClass('is-selected')
+    $changePwForm.removeClass('is-selected')
+    $signupTab.addClass('selected')
+    $signinTab.removeClass('selected')
+    $changePwTab.hide()
+    $signupTab.show()
+    $signinTab.show()
   }
 
-  // function forgot_password_selected () {
-  //   $loginForm.removeClass('is-selected')
-  //   $signupForm.removeClass('is-selected')
-  //   $forgotPasswordForm.addClass('is-selected')
-  // }
+  function changePwTabSelected () {
+    $changePwForm.addClass('is-selected')
+    $changePwTab.addClass('selected')
+  }
 })

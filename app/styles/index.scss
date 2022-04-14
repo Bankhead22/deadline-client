@@ -181,18 +181,25 @@ header[role=banner]::after {
     }
 
     .main-nav a.signin,
-    .main-nav a.signup {
+    .main-nav a.signup,
+    .main-nav a.signout,
+    .main-nav a.changePw {
         padding: .6em 1em;
         border: 1px solid rgba(255, 255, 255, 0.6);
         border-radius: 50em;
     }
 
-    .main-nav a.signup {
+    .main-nav a.signup,
+    .main-nav a.changePw {
         background: #2f889a;
         border: none;
     }
 }
 
+.main-nav a.signout,
+.main-nav a.changePw {
+    display: none;
+}
 /* -------------------------------- 
 
 xsigin/signup popup 
@@ -537,14 +544,16 @@ xsigin/signup popup
     }
 }
 
-#login,
+#signin,
 #signup,
-#reset-password {
+#signout,
+#changePw {
     display: none;
 }
 
-#login.is-selected,
+#signin.is-selected,
 #signup.is-selected,
-#reset-password.is-selected {
+#signout.is-selected,
+#changePw.is-selected {
     display: block;
 }

@@ -5,6 +5,7 @@ const onSignUpSuccess = () => {
 //   $('#sign-up-form').hide()
 //   $('#new-user-btn').hide()
   $('form').trigger('reset')
+
   console.log('Mo money Mo Violence')
 }
 
@@ -14,15 +15,11 @@ const onSignUpFailure = () => {
 }
 
 const onSignInSuccess = (response) => {
-//   $('#auth-display').text('User signed in successfully')
-//   $('form').trigger('reset')
-//   $('#sign-in-form').hide()
-//   $('#sign-up-form').hide()
-//   $('#show-sign-in-btn').hide()
-//   $('#new-user-btn').hide()
-//   $('#sign-out-btn').show()
-//   $('#new-game-btn').show()
+  $('form').trigger('reset')
   console.log('uccess!S')
+  $('.user-modal').removeClass('is-visible')
+  $('.signout, .changePw, #change-pw-form').show()
+  $('.signin, .signup, #sign-in-form, #sign-up-form').hide()
   store.user = response.user
 }
 
@@ -31,9 +28,34 @@ const onSignInFailure = () => {
   console.log('yoo')
 }
 
+const onSignOutSuccess = () => {
+  $('.signout, .changePw, #change-pw-form').hide()
+  $('.signin, .signup, #sign-in-form, #sign-up-form').show()
+  console.log('successful')
+  store.user = null
+}
+
+const onSignOutFailure = () => {
+  console.log('trying agin cheif')
+}
+
+const onChangePasswordSuccess = () => {
+  $('form').trigger('reset')
+  $('.user-modal').removeClass('is-visible')
+}
+
+const onChangePasswordFailure = function (error) {
+  console.log(error)
+  $('form').trigger('reset')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
-  onSignInFailure
+  onSignInFailure,
+  onSignOutSuccess,
+  onSignOutFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure
 }
