@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Deadline</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,128 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
-    </body>
+      <h1>Hello</h1>
+  
+      <header role="banner">
+        <div id="logo"><a href="#0"><img
+              alt="Logo"></a></div>
+      
+        <nav class="main-nav">
+          <ul>
+            <!-- inser more links here -->
+            <li><a class="signin" href="#0">Sign in</a></li>
+            <li><a class="signup" href="#0">Sign up</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- this is the entire modal form, including the background -->
+      <div class="user-modal">
+
+        <!-- this is the container wrapper -->
+        <div class="user-modal-container">
+
+          <!-- Sign In/ New account switcher -->
+          <ul class="switcher">
+            <li><a href="#0">Sign in</a></li>
+            <li><a href="#0">New account</a></li>
+          </ul>
+
+          <!-- log in form -->
+          <div id="login">
+            
+            <form id= "sign-in-form" class="form">
+              <p class="fieldset">
+                <label class="image-replace email" for="signin-email">E-mail</label>
+                <input class="full-width has-padding has-border" id="signin-email" name="credentials[email]" type="email" placeholder="Email">
+                <span class="error-message">Error!</span>
+              </p>
+          
+              <p class="fieldset">
+                <label class="image-replace password" for="signin-password">Password</label>
+                <input class="full-width has-padding has-border" id="signin-password" name="credentials[password]" type="password" placeholder="Enter password">
+                <!-- <a href="#0" class="hide-password">Hide</a> -->
+                <span class="error-message">Error!</span>
+              </p>
+          
+              <!-- <p class="fieldset">
+                <input type="checkbox" id="remember-me" checked>
+                <label for="remember-me">Remember me</label>
+              </p> -->
+          
+              <p class="fieldset">
+                <input id="sign-in-btn" class="full-width" type="submit" value="Login">
+              </p>
+              
+            </form>
+          
+            <!-- <p class="form-bottom-message"><a href="#0">Forgot your password?</a></p> -->
+            <a href="#0" class="close-form">Close</a>
+          </div> <!-- login -->
+
+          <!-- sign up form -->
+          <div id="signup">
+            
+            <form id="sign-up-form" class="form">
+              <p class="fieldset">
+                <label class="image-replace email" for="signup-email">E-mail</label>
+                <input class="full-width has-padding has-border" id="signup-email" name="credentials[email]" type="email" placeholder="Email">
+                <span class="error-message">Error!</span>
+              </p>
+          
+              <p class="fieldset">
+                <label class="image-replace password" for="signup-password">Password</label>
+                <input class="full-width has-padding has-border" id="signup-password" name="credentials[password]" type="password" placeholder="Enter password">
+                <!-- <a href="#0" class="hide-password">Hide</a> -->
+                <span class="error-message">Error!</span>
+              </p>
+          
+              <p class="fieldset">
+                <label class="image-replace password-confirmation" for="signup-password-confirmation">Password</label>
+                <input class="full-width has-padding has-border" id="signup-password-confirmation" name="credentials[password_confirmation]" type="password" placeholder="Re-enter password">
+                <!-- <a href="#0" class="hide-password">Hide</a> -->
+                <span class="error-message">Error!</span>
+              </p>
+          
+              <!-- <p class="fieldset">
+                <input type="checkbox" id="accept-terms">
+                <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+              </p> -->
+          
+              <p class="fieldset">
+                <input class="full-width has-padding" type="submit" value="Create account">
+              </p>
+            </form>
+          
+            <a href="#0" class="close-form">Close</a>
+          </div> <!-- signup -->
+
+          <!-- reset password form -->
+          <!-- <div id="reset-password">
+            
+            <p class="form-message">Lost your password? Please enter your email address. You will receive a link to create a
+              new password.</p>
+          
+            <form class="form">
+              <p class="fieldset">
+                <label class="image-replace email" for="reset-email">E-mail</label>
+                <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+                <span class="error-message">Error!</span>
+              </p>
+          
+              <p class="fieldset">
+                <input class="full-width has-padding" type="submit" value="Reset password">
+              </p>
+            </form>
+          
+            <p class="form-bottom-message"><a href="#0">Back to log-in</a></p>
+          </div> reset-password -->
+          
+          <a href="#0" class="close-form">Close</a>
+
+          </div> <!-- user-modal-container -->
+
+          </div> <!-- user-modal -->
+
+</body>
 </html>
