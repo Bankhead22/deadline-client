@@ -1,9 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
-html * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+
+// html {
+//     display: flex;
+//     flex-flow: row nowrap;
+//     justify-content: center;
+//     align-content: center;
+//     align-items: center;
+//     height: 100%;
+//     margin: 0;
+//     padding: 0;
+//     background: #eeeeee;
+// }
+
 
 *,
 *:after,
@@ -16,8 +25,9 @@ html * {
 body {
     font-size: 100%;
     font-family: "PT Sans", sans-serif;
-    color: #505260;
+    color: #fff95b;
     background-color: #454751;
+    
 }
 
 a {
@@ -36,10 +46,6 @@ textarea {
     font-size: 1rem;
 }
 
-input::-ms-clear,
-textarea::-ms-clear {
-    display: none;
-}
 
 ul {
     list-style-type: none;
@@ -52,29 +58,12 @@ Main components
 -------------------------------- */
 header[role=banner] {
     position: relative;
-    height: 50px;
+    height: 650px;
     background: #343642;
 }
 
-header[role=banner] #logo {
-    float: left;
-    margin: 4px 0 0 5%;
-    /* reduce logo size on mobile and make sure it is left aligned with the transform-origin property */
-    -webkit-transform-origin: 0 50%;
-    -moz-transform-origin: 0 50%;
-    -ms-transform-origin: 0 50%;
-    -o-transform-origin: 0 50%;
-    transform-origin: 0 50%;
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    transform: scale(0.8);
-}
 
-header[role=banner] #logo img {
-    display: block;
-}
+
 
 header[role=banner]::after {
     /* clearfix */
@@ -82,8 +71,7 @@ header[role=banner]::after {
     display: table;
     clear: both;
 }
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 420px) {
     header[role=banner] {
         height: 80px;
     }
@@ -136,8 +124,7 @@ header[role=banner]::after {
     border-top: 1px solid #3b3d4b;
     color: #FFF;
 }
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 420px) {
     .main-nav {
         width: auto;
         height: auto;
@@ -146,7 +133,7 @@ header[role=banner]::after {
     }
 
     .main-nav ul {
-        position: static;
+        position: absolute;
         width: auto;
         -webkit-transform: translateY(0);
         -moz-transform: translateY(0);
@@ -169,24 +156,17 @@ header[role=banner]::after {
         margin-left: 1em;
     }
 
-    .main-nav li:nth-last-child(2) {
-        margin-left: 2em;
-    }
+   
 
     .main-nav a {
         display: inline-block;
         height: auto;
         line-height: normal;
         background: transparent;
-    }
-
-    .main-nav a.signin,
-    .main-nav a.signup,
-    .main-nav a.signout,
-    .main-nav a.changePw {
+   
         padding: .6em 1em;
         border: 1px solid rgba(255, 255, 255, 0.6);
-        border-radius: 50em;
+        border-radius: 40em;
     }
 
     .main-nav a.signup,
@@ -196,8 +176,13 @@ header[role=banner]::after {
     }
 }
 
-.main-nav a.signout,
-.main-nav a.changePw {
+
+#signout-btn,
+.main-nav a.changePw,
+#home-btn,
+#show-subs, 
+#find-sub-form-btn,
+#create-sub-form-btn {
     display: none;
 }
 /* -------------------------------- 
@@ -292,8 +277,7 @@ xsigin/signup popup
     background: #FFF;
     color: #505260;
 }
-
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 420px) {
     .user-modal-container {
         margin: 4em auto;
     }
@@ -303,6 +287,7 @@ xsigin/signup popup
         line-height: 70px;
     }
 }
+
 
 .form {
     padding: 1.4em;
@@ -383,10 +368,6 @@ xsigin/signup popup
     border: 1px solid #d76666;
 }
 
-.form input[type=password] {
-    /* space left for the HIDE button */
-    padding-right: 65px;
-}
 
 .form input[type=submit] {
     padding: 16px 0;
@@ -408,24 +389,7 @@ xsigin/signup popup
     outline: none;
 }
 
-.form .hide-password {
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 6px 15px;
-    border-left: 1px solid #d2d8d8;
-    top: 50%;
-    bottom: auto;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-size: 14px;
-    font-size: 0.875rem;
-    color: #343642;
-}
+
 
 .form .error-message {
     display: inline-block;
@@ -468,7 +432,6 @@ xsigin/signup popup
     -moz-transition: opacity 0.2s 0, visibility 0 0;
     transition: opacity 0.2s 0, visibility 0 0;
 }
-
 @media only screen and (min-width: 600px) {
     .form {
         padding: 2em;
@@ -495,6 +458,7 @@ xsigin/signup popup
     }
 }
 
+
 .form-message {
     padding: 1.4em 1.4em 0;
     font-size: 14px;
@@ -503,11 +467,7 @@ xsigin/signup popup
     text-align: center;
 }
 
-@media only screen and (min-width: 600px) {
-    .form-message {
-        padding: 2em 2em 0;
-    }
-}
+
 
 .form-bottom-message {
     position: absolute;
@@ -519,35 +479,34 @@ xsigin/signup popup
     font-size: 0.875rem;
 }
 
-.form-bottom-message a {
-    color: #FFF;
-    text-decoration: underline;
+
+
+
+
+.centered-wrapper {
+    position: relative;
+    text-align: center;
 }
 
-.close-form {
-    /* form X button on top right */
-    display: block;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 0;
-    top: -40px;
-    // background: url("../img/icon-close.svg") no-repeat center center;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
 }
 
-@media only screen and (min-width: 1170px) {
-    .close-form {
-        display: none;
-    }
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #signin,
 #signup,
 #signout,
-#changePw {
+#changePw,
+ .hidden {
     display: none;
 }
 

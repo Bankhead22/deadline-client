@@ -2,33 +2,55 @@
 // const example = require('./example')
 const authEvents = require('./auth/events.js')
 const subEvents = require('./sub/events.js')
-// use require without a reference to ensure a file is bundled
-// require('./example')
+
 
 const $mainNav = $('.main-nav')
 const $userModal = $('.user-modal')
+
 const $signinForm = $userModal.find('#signin')
 const $signupForm = $userModal.find('#signup')
 const $changePwForm = $userModal.find('#changePw')
-// const $forgotPasswordForm = $userModal.find('#reset-password')
+
 const $switchTab = $('.switcher')
 const $signinTab = $switchTab.children('li').eq(0).children('a')
 const $signupTab = $switchTab.children('li').eq(1).children('a')
 const $changePwTab = $switchTab.children('li').eq(2).children('a')
-// const $forgotPasswordLink = $signinForm.find('.form-bottom-message a')
-// const $backToLoginLink = $forgotPasswordForm.find(
-//   '.form-bottom-message a'
-// )
+
+
 
 $(() => {
   // Auth events
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
-  $('.signout').on('click', authEvents.onSignOut)
+  $('#signout-btn').on('click', authEvents.onSignOut)
   $('#change-pw-form').on('submit', authEvents.onChangePassword)
 
   // Sub events
-  $('#create-new-sub').on('submit', subEvents.onCreateSub)
+  $('#create-sub-form').on('submit', subEvents.onAddSub)
+  $('#show-subs').on('click', subEvents.onShowSubs)
+  $('#delete-sub').on('submit', subEvents.onDeleteSub)
+  // $('.update-sub-form').on('submit', subEvents.onUpdateSub)
+
+  $('#sub-display').on('click', '.delete-btn', subEvents.onDeleteSub)
+
+  // $('#sub-display').on('submit', '.update-sub-form', () => {
+  //   subEvents.onUpdateSub()
+  // })
+
+  $('#sub-display').on('click', '.update-btn', () => {
+    $('.update-sub-form').toggleClass('hidden')
+  })
+
+  $('#create-sub-form-btn').on('click', () => {
+    $('#create-sub-form').toggleClass('hidden')
+  })
+
+  // $('#find-sub-form-btn').on('click', () => {
+  //   $('#find-sub-form').toggleClass('hidden')
+  // })
+
+  // // Nav events
+
 
   // open modal
   $('.signin, .signup, .changePw').on('click', function (event) {
@@ -95,5 +117,7 @@ $(() => {
   function changePwTabSelected () {
     $changePwForm.addClass('is-selected')
     $changePwTab.addClass('selected')
+    $signinForm.removeClass('is-selected')
+    $signupForm.removeClass('is-selected')
   }
 })
