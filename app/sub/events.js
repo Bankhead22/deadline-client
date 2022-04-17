@@ -14,12 +14,17 @@ const onAddSub = function (event) {
     .catch(ui.onAddSubFailure)
 }
 
-const onShowSubs = function (event) {
-  event.preventDefault()
+const onShowSubs = function () {
+  // event.preventDefault()
 
   api.showSubs()
     .then(ui.onShowSubsSuccess)
     .catch(ui.onShowSubsFailure)
+}
+
+const showSubForm = function (event) {
+  const id = $(event.target).data('id')
+  $(`#update${id}`).show()
 }
 
 const onUpdateSub = function (event) {
@@ -30,39 +35,27 @@ const onUpdateSub = function (event) {
 
   api.updateSub(data, subId)
     .then(() => ui.onUpdateSubSuccess())
+    .then(onShowSubs)
     .catch(ui.onUpdateSubFailure())
 }
 
 const onDeleteSub = function (event) {
-  event.preventDefault()
+  // event.preventDefault()
 
   // find id of sub
-  const subId = $('.delete-btn').data('id')
-
-  // api
-  //   .deleteSub(subId)
-  //   .then(() => {
-  //     api.showSubs()
-  //       .then(ui.onShowSubsSuccess)
-  //       .catch(ui.onShowSubsFailure)
-  //   })
-  //   .catch(ui.onDeleteSubFailure)
-  // api.deleteSub(subId)
-  // .then(ui.onShowSubsSuccess)
-  // .then(onShowSubs())
-  // .catch(ui.onDeleteSubFailure)
+  const subId = $(event.target).data('id')
 
   api
-		.deleteSub(subId)
-		.then(ui.onShowSubsSuccess)
-		.then(onShowSubs(event))
-		.catch(ui.onDeleteSubFailure)
-  
+    .deleteSub(subId)
+    .then(ui.onDeleteSubSuccess)
+    .then(onShowSubs)
+    .catch(ui.onDeleteSubFailure)
 }
 
 module.exports = {
   onAddSub,
   onShowSubs,
   onDeleteSub,
-  onUpdateSub
+  onUpdateSub,
+  showSubForm
 }

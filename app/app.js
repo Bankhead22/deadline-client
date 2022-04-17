@@ -3,7 +3,6 @@
 const authEvents = require('./auth/events.js')
 const subEvents = require('./sub/events.js')
 
-
 const $mainNav = $('.main-nav')
 const $userModal = $('.user-modal')
 
@@ -16,8 +15,6 @@ const $signinTab = $switchTab.children('li').eq(0).children('a')
 const $signupTab = $switchTab.children('li').eq(1).children('a')
 const $changePwTab = $switchTab.children('li').eq(2).children('a')
 
-
-
 $(() => {
   // Auth events
   $('#sign-up-form').on('submit', authEvents.onSignUp)
@@ -28,29 +25,34 @@ $(() => {
   // Sub events
   $('#create-sub-form').on('submit', subEvents.onAddSub)
   $('#show-subs').on('click', subEvents.onShowSubs)
-  $('#delete-sub').on('submit', subEvents.onDeleteSub)
-  // $('.update-sub-form').on('submit', subEvents.onUpdateSub)
 
+  $('.update-sub-form').on('submit', subEvents.onUpdateSub)
+
+  // delete button
   $('#sub-display').on('click', '.delete-btn', subEvents.onDeleteSub)
+  $('#delete-sub').on('submit', subEvents.onDeleteSub)
 
-  // $('#sub-display').on('submit', '.update-sub-form', () => {
-  //   subEvents.onUpdateSub()
-  // })
+  // update button
+  $('#sub-display').on('submit', '.update-sub-form', subEvents.onUpdateSub
+  )
 
-  $('#sub-display').on('click', '.update-btn', () => {
-    $('.update-sub-form').toggleClass('hidden')
-  })
+  $('#sub-display').on('click', '.update-btn',
 
-  $('#create-sub-form-btn').on('click', () => {
-    $('#create-sub-form').toggleClass('hidden')
-  })
+    subEvents.showSubForm
+  )
 
+  // Find by id button
   // $('#find-sub-form-btn').on('click', () => {
   //   $('#find-sub-form').toggleClass('hidden')
   // })
 
   // // Nav events
-
+  $('#create-sub-form-btn').on('click', () => {
+    $('#create-sub-form').toggleClass('hidden')
+  })
+  $('#home-btn').on('click', () => {
+    $('#sub-display').html(' ')
+  })
 
   // open modal
   $('.signin, .signup, .changePw').on('click', function (event) {

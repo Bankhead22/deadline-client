@@ -28,16 +28,17 @@
             <li><a class="signup" href="#0">Sign up</a></li>
             <!-- INDEX/Show all subs -->
             <li><a id="show-subs"  href="#0">My Subs</a></li>
-            <li><a id="find-sub-form-btn"  href="#0">Find Sub</a></li>
+            <!-- <li><a id="find-sub-form-btn"  href="#0">Find Sub</a></li> -->
             <!-- CREATE sub -->
             <li><a id="create-sub-form-btn"  href="#0">Create New Sub</a></li>
+            <!-- sign out/changepw btn -->
             <li><a id="signout-btn" href="#0">Sign out</a></li>
             <li><a class=" changePw hidden" href="#0">Change Password</a></li>
           </ul>
         </nav>
       </header>
 
-      <!-- Entire modal form, including the background -->
+      <!-- Entire modal, including the background -->
       <div class="user-modal">
 
         <!-- Container wrapper -->
@@ -138,12 +139,12 @@
           </div> <!-- user-modal -->
 
 
-          <!-- subscription buttons/modal -->
+        
       
-        <section>
-          <h3 id="sub-display"></h3>
-        </section>
-          <!-- subscription form -->
+        <section id="sub-display"></section>
+
+          <!-- create subscription form -->
+          
            <!-- Create -->
            <div class="centered-content">
           <form id="create-sub-form" class="form hidden">
@@ -173,16 +174,18 @@
       </div>
         
 <!-- Find By ID -->
-<form id="find-sub-form" class="form hidden">
+<!-- <form id="find-sub-form" class="form hidden">
   <p class="fieldset">
     <legend>Find By Id</legend>
     <label for="update-sub-id">Subscription ID:</label>
     <input name="subscription[id]" type="text" class="full-width has-padding has-border" id="find-sub-id">
   </p>
-</form>
-          <!-- Update -->
-          <div class="centered content">
-        <form id="update-sub-form" class="form hidden">
+</form> -->
+
+          <!-- Update sub form-->
+
+        <div class="centered content">
+        <form class="update-sub-form form hidden">
 
         <p class="fieldset">
           <legend>Update subscription!</legend>
