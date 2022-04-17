@@ -2,6 +2,8 @@ const ui = require('./ui.js')
 const api = require('./api.js')
 const getFormFields = require('../../lib/get-form-fields.js')
 
+// const quotes = require('./quotes.js')
+
 const onAddSub = function (event) {
   event.preventDefault()
 
@@ -24,7 +26,7 @@ const onShowSubs = function () {
 
 const showSubForm = function (event) {
   const id = $(event.target).data('id')
-  $(`#update${id}`).show()
+  $(`#update${id}`).toggleClass('hidden')
 }
 
 const onUpdateSub = function (event) {
@@ -52,10 +54,15 @@ const onDeleteSub = function (event) {
     .catch(ui.onDeleteSubFailure)
 }
 
+const onHomeScreen = () => {
+  $('#home-display').html('Welcome Home!')
+}
+
 module.exports = {
   onAddSub,
   onShowSubs,
   onDeleteSub,
   onUpdateSub,
-  showSubForm
+  showSubForm,
+  onHomeScreen
 }

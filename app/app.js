@@ -6,6 +6,11 @@ const subEvents = require('./sub/events.js')
 const $mainNav = $('.main-nav')
 const $userModal = $('.user-modal')
 
+const $homeButton = () => {
+  $('#sub-display, #home-display').html(' ')
+  $('#create-sub-form, .update-sub-form').addClass('hidden')
+}
+
 const $signinForm = $userModal.find('#signin')
 const $signupForm = $userModal.find('#signup')
 const $changePwForm = $userModal.find('#changePw')
@@ -23,23 +28,22 @@ $(() => {
   $('#change-pw-form').on('submit', authEvents.onChangePassword)
 
   // Sub events
+  // create sub button
   $('#create-sub-form').on('submit', subEvents.onAddSub)
-  $('#show-subs').on('click', subEvents.onShowSubs)
-
-  $('.update-sub-form').on('submit', subEvents.onUpdateSub)
+  // find all subs button
+  $('#show-subs').on('click', () => {
+    $homeButton()
+    subEvents.onShowSubs()
+  })
 
   // delete button
   $('#sub-display').on('click', '.delete-btn', subEvents.onDeleteSub)
   $('#delete-sub').on('submit', subEvents.onDeleteSub)
 
   // update button
-  $('#sub-display').on('submit', '.update-sub-form', subEvents.onUpdateSub
-  )
+  $('#sub-display').on('click', '.update-btn', subEvents.showSubForm)
 
-  $('#sub-display').on('click', '.update-btn',
-
-    subEvents.showSubForm
-  )
+  $('#sub-display').on('submit', '.update-sub-form', subEvents.onUpdateSub)
 
   // Find by id button
   // $('#find-sub-form-btn').on('click', () => {
@@ -47,11 +51,15 @@ $(() => {
   // })
 
   // // Nav events
+  // create sub form btn
   $('#create-sub-form-btn').on('click', () => {
+    $homeButton()
     $('#create-sub-form').toggleClass('hidden')
   })
+  // home btn
   $('#home-btn').on('click', () => {
-    $('#sub-display').html(' ')
+    $homeButton()
+    subEvents.onHomeScreen()
   })
 
   // open modal

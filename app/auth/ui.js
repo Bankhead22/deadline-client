@@ -1,10 +1,7 @@
 const store = require('../store.js')
 
-
 const onSignUpSuccess = () => {
   $('form').trigger('reset')
-
-  console.log('Mo money Mo Violence')
 }
 
 const onSignUpFailure = () => {
@@ -34,6 +31,9 @@ const onSignOutSuccess = () => {
 
   $('.signin, .signup, #sign-in-form, #sign-up-form').show()
 
+  $('#sub-display').html(' ')
+  $('#create-sub-form, .update-sub-form').addClass('hidden')
+
   store.user = null
 }
 
@@ -45,8 +45,7 @@ const onChangePasswordSuccess = () => {
   $('.user-modal').removeClass('is-visible')
 }
 
-const onChangePasswordFailure = function (error) {
-  console.log(error)
+const onChangePasswordFailure = () => {
   $('form').trigger('reset')
 }
 

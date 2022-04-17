@@ -15,7 +15,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="centered-wrapper">
-      <h1>Hello World</h1>
+      <h1>Deadline: Subscription Tracker</h1>
   
       <header role="banner">
       
@@ -107,32 +107,32 @@
             <a href="#0" class="close-form">Close</a>
           </div> <!-- signup -->
 
-<!-- change password form -->
-<div id="changePw">
+          <!-- change password form -->
+          <div id="changePw">
 
-  <form id="change-pw-form" class="form">
-    
-    <p class="fieldset">
-      <label class="image-replace password" for="old-password"> Old password</label>
-      <input class="full-width has-padding has-border" id="old-password" name="passwords[old]" type="password"
-        placeholder="Enter old password">
-      <span class="error-message">Error!</span>
-    </p>
+            <form id="change-pw-form" class="form">
+              
+              <p class="fieldset">
+                <label class="image-replace password" for="old-password"> Old password</label>
+                <input class="full-width has-padding has-border" id="old-password" name="passwords[old]" type="password"
+                  placeholder="Enter old password">
+                <span class="error-message">Error!</span>
+              </p>
 
-    <p class="fieldset">
-      <label class="image-replace password-confirmation" for="new-password">New password</label>
-      <input class="full-width has-padding has-border" id="new-password"
-        name="passwords[new]" type="password" placeholder="New password">
-      <span class="error-message">Error!</span>
-    </p>
+              <p class="fieldset">
+                <label class="image-replace password-confirmation" for="new-password">New password</label>
+                <input class="full-width has-padding has-border" id="new-password"
+                  name="passwords[new]" type="password" placeholder="New password">
+                <span class="error-message">Error!</span>
+              </p>
 
-    <p class="fieldset">
-      <input class="full-width has-padding" type="submit" value="Change password">
-    </p>
-  </form>
+              <p class="fieldset">
+                <input class="full-width has-padding" type="submit" value="Change password">
+              </p>
+            </form>
 
-  <a href="#0" class="close-form">Close</a>
-</div> <!-- change pw -->
+            <a href="#0" class="close-form">Close</a>
+          </div> <!-- change pw -->
 
           </div> <!-- user-modal-container -->
 
@@ -140,13 +140,13 @@
 
 
         
-      
-        <section id="sub-display"></section>
+          <section id="home-display"></section>
+          <section id="sub-display" ></section>
 
           <!-- create subscription form -->
           
            <!-- Create -->
-           <div class="centered-content">
+          <div class="centered-content">
           <form id="create-sub-form" class="form hidden">
 
             <p class="fieldset">
@@ -171,48 +171,48 @@
               <input class="full-width has-padding" type="submit" name="submit" value="Create subscription!">
             </p>
           </form>
-      </div>
+          </div>
         
-<!-- Find By ID -->
-<!-- <form id="find-sub-form" class="form hidden">
-  <p class="fieldset">
-    <legend>Find By Id</legend>
-    <label for="update-sub-id">Subscription ID:</label>
-    <input name="subscription[id]" type="text" class="full-width has-padding has-border" id="find-sub-id">
-  </p>
-</form> -->
+          <!-- Find By ID -->
+          <!-- <form id="find-sub-form" class="form hidden">
+      <p class="fieldset">
+        <legend>Find By Id</legend>
+        <label for="update-sub-id">Subscription ID:</label>
+        <input name="subscription[id]" type="text" class="full-width has-padding has-border" id="find-sub-id">
+      </p>
+    </form> -->
 
-          <!-- Update sub form-->
+          <!-- Update sub form
 
-        <div class="centered content">
-        <form class="update-sub-form form hidden">
+            <div class="centered content">
+            <form class="update-sub-form form hidden">
 
-        <p class="fieldset">
-          <legend>Update subscription!</legend>
-          <input type="text" class="full-width has-padding has-border" name="subscription[name]"
-            placeholder="Name of subscription">
-        </p>
-        
-        <p class="fieldset">
-          <input type="text" class="full-width has-padding has-border" name="subscription[price]" placeholder="price/month">
-        </p>
-        
-        <p class="fieldset">
-          <input type="date" class="inline  has-padding has-border" name="subscription[start]">
-          <input type="date" class="has-padding has-border" name="subscription[end]">
-        </p>
-        
-        <p class="fieldset">
-          <input class="full-width has-padding has-border" name="subscription[notes]" type="text"
-            placeholder="comments">
-        </p>
-        
-        <p class="fieldset">
-          <input class="full-width has-padding" type="submit" name="submit" value="Create subscription!">
-        </p>
-        </form>
-</div>
-      
+            <p class="fieldset">
+              <legend>Update subscription!</legend>
+              <input type="text" class="full-width has-padding has-border" name="subscription[name]"
+                placeholder="Name of subscription">
+            </p>
+            
+            <p class="fieldset">
+              <input type="text" class="full-width has-padding has-border" name="subscription[price]" placeholder="price/month">
+            </p>
+            
+            <p class="fieldset">
+              <input type="date" class="inline  has-padding has-border" name="subscription[start]">
+              <input type="date" class="has-padding has-border" name="subscription[end]">
+            </p>
+            
+            <p class="fieldset">
+              <input class="full-width has-padding has-border" name="subscription[notes]" type="text"
+                placeholder="comments">
+            </p>
+            
+            <p class="fieldset">
+              <input class="full-width has-padding" type="submit" name="submit" value="Create subscription!">
+            </p>
+            </form>
+    </div> -->
+          
     
   </body>
 </html>

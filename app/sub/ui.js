@@ -23,17 +23,17 @@ const onShowSubsSuccess = function (response) {
 
   mySubs.forEach(sub => {
     const singleSubHTML = `
-  <div class="centered content">
+  <div>
     <p>Name: ${sub.name}</p>
     <p>Start Date: ${sub.start}</p>
     <p>End Date: ${sub.end}</p>
     <p>Price: $${sub.price}/month</p>
     <p>Notes: ${sub.notes}</p>
     <p>ID: ${sub._id}</p>
+    
+    <div class="centered-content">
     <button class="delete-btn" data-id=${sub._id}>delete</button>
     <button class="update-btn" data-id=${sub._id}>update</button>
-
-    <div class="centered content">
       <form id="update${sub._id}" class="update-sub-form form hidden">
         <p class="fieldset">
           <legend>Update subscription!</legend>
@@ -56,7 +56,7 @@ const onShowSubsSuccess = function (response) {
         </p>
 
         <p class="fieldset">
-          <input class="full-width has-padding" type="submit" name="submit" value="Create subscription!">
+          <input class="full-width has-padding" type="submit" name="submit" value="Update subscription!">
         </p>
       </form>
   </div>
@@ -65,7 +65,7 @@ const onShowSubsSuccess = function (response) {
     allSubsHTML += singleSubHTML
   })
 
-  $('#sub-display').html(`These are your subs:${allSubsHTML}`)
+  $('#sub-display').html(`<legend>These are your subs:</legend>${allSubsHTML}`)
 
   $('form').trigger('reset')
 }

@@ -1,0 +1,5 @@
+// const quotes = []
+
+// const randomQuote = () => {
+
+// }
