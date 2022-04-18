@@ -9,7 +9,6 @@ const quotes = [
   'Do not take life too seriously. You will never get out of it alive. —Elbert Hubbard',
   'You only live once, but if you do it right, once is enough. ―Mae West',
   "If at first you don't succeed, try, try again. Then quit. No use being a damn fool about it. ―W.C. Fields",
-  "I love mankind... it's people I can't stand!! ― Charles M. Schulz",
   "Two things are infinite: the universe and human stupidity. And I'm not sure about the universe. ―Albert Einstein",
   "I just want to lie on the beach and eat hot dogs. That's all I've ever wanted. —Kevin Malone",
   "As you get older, three things happen. The first is your memory goes, and I can't remember the other two. —Sir Norman Wisdom",

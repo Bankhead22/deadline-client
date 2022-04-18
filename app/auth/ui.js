@@ -2,7 +2,8 @@ const store = require('../store.js')
 
 const onSignUpSuccess = () => {
   $('form').trigger('reset')
-  $('#home-display').html('<div class="display"><h2>Sign up successful! Sign in to continue.</h2></div>')
+  $('.user-modal').removeClass('is-visible')
+  $('#sub-display').html('<div class="display"><h2>Sign up successful! Sign in to continue.</h2></div>')
 }
 
 const onSignUpFailure = () => {
