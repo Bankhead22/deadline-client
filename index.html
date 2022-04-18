@@ -15,7 +15,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="centered-wrapper">
-      <h1>Deadline: Subscription Tracker</h1>
+      <h1 id="title">Deadline: Subscription Tracker</h1>
   
       <header role="banner">
       
@@ -32,8 +32,8 @@
             <!-- CREATE sub -->
             <li><a id="create-sub-form-btn"  href="#0">Create New Sub</a></li>
             <!-- sign out/changepw btn -->
-            <li><a id="signout-btn" href="#0">Sign out</a></li>
             <li><a class=" changePw hidden" href="#0">Change Password</a></li>
+            <li><a id="signout-btn" href="#0">Sign out</a></li>
           </ul>
         </nav>
       </header>
@@ -58,13 +58,13 @@
               <p class="fieldset">
                 <label class="image-replace email" for="signin-email">E-mail</label>
                 <input class="full-width has-padding has-border" id="signin-email" name="credentials[email]" type="email" placeholder="Email">
-                <span class="error-message">Error!</span>
+                <span class="error-message">Incorrect username or password!</span>
               </p>
           
               <p class="fieldset">
                 <label class="image-replace password" for="signin-password">Password</label>
                 <input class="full-width has-padding has-border" id="signin-password" name="credentials[password]" type="password" placeholder="Enter password">
-                <span class="error-message">Error!</span>
+                <span class="error-message">Error while signing in!</span>
               </p>
               
               <p class="fieldset">
@@ -83,19 +83,19 @@
               <p class="fieldset">
                 <label class="image-replace email" for="signup-email">E-mail</label>
                 <input class="full-width has-padding has-border" id="signup-email" name="credentials[email]" type="email" placeholder="Email">
-                <span class="error-message">Error!</span>
+                <span class="error-message">Error! Please try again!</span>
               </p>
           
               <p class="fieldset">
                 <label class="image-replace password" for="signup-password">Password</label>
                 <input class="full-width has-padding has-border" id="signup-password" name="credentials[password]" type="password" placeholder="Enter password">
-                <span class="error-message">Error!</span>
+                <span class="error-message">Error! Please try again!</span>
               </p>
           
               <p class="fieldset">
                 <label class="image-replace password-confirmation" for="signup-password-confirmation">Password</label>
                 <input class="full-width has-padding has-border" id="signup-password-confirmation" name="credentials[password_confirmation]" type="password" placeholder="Re-enter password">
-                <span class="error-message">Error!</span>
+                <span class="error-message">Error! Please try again!</span>
               </p>
           
           
@@ -116,14 +116,14 @@
                 <label class="image-replace password" for="old-password"> Old password</label>
                 <input class="full-width has-padding has-border" id="old-password" name="passwords[old]" type="password"
                   placeholder="Enter old password">
-                <span class="error-message">Error!</span>
+                <span class="error-message">Passwords don't match!</span>
               </p>
 
               <p class="fieldset">
                 <label class="image-replace password-confirmation" for="new-password">New password</label>
                 <input class="full-width has-padding has-border" id="new-password"
                   name="passwords[new]" type="password" placeholder="New password">
-                <span class="error-message">Error!</span>
+                <span class="error-message">Passwords don't match!</span>
               </p>
 
               <p class="fieldset">
@@ -141,6 +141,7 @@
 
         
           <section id="home-display"></section>
+          
           <section id="sub-display" ></section>
 
           <!-- create subscription form -->

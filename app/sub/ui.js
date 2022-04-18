@@ -8,9 +8,14 @@ const onAddSubSuccess = function (response) {
   $('#create-sub-form').addClass('hidden')
 
   $('form').trigger('reset')
+  $('#sub-display').html('<h3>New subscription created! View by clicking \'My Subs\' button.</h3>'
+  )
 }
 
 const onAddSubFailure = function () {
+  $('#sub-display').html(
+    '<h3>Something went wrong! Make sure that you filled all fields out correctly.</h3>'
+  )
   $('form').trigger('reset')
 }
 
@@ -32,8 +37,8 @@ const onShowSubsSuccess = function (response) {
     <p>ID: ${sub._id}</p>
     
     <div class="centered-content">
-    <button class="delete-btn" data-id=${sub._id}>delete</button>
-    <button class="update-btn" data-id=${sub._id}>update</button>
+    <button class="button delete-btn" data-id=${sub._id}>delete</button>
+    <button class="button update-btn" data-id=${sub._id}>update</button>
       <form id="update${sub._id}" class="update-sub-form form hidden">
         <p class="fieldset">
           <legend>Update subscription!</legend>

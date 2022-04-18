@@ -5,7 +5,11 @@ const onSignUpSuccess = () => {
 }
 
 const onSignUpFailure = () => {
-
+  $('#sign-up-form')
+    .find('input[type="email"], input[type="password"]')
+    .toggleClass('has-error')
+    .next('span')
+    .toggleClass('is-visible')
 }
 
 const onSignInSuccess = (response) => {
@@ -18,10 +22,16 @@ const onSignInSuccess = (response) => {
   $('.signin, .signup, #sign-in-form, #sign-up-form').hide()
 
   store.user = response.user
+  $('#sub-display').html(`
+      <div class="display">
+        <h2>Welcome ${store.user.email}!</h2>
+        <p>To get started, click the 'Create New Sub' button to create a new subscription. All you need to do is enter the name, price per month, start and end date of your subscription, along with any additional notes to start tracking subscriptions! View all your created subscriptions with the 'My subs' button! 
+        </p>
+      </div>`)
 }
 
 const onSignInFailure = () => {
-
+  $('#sign-in-form').find('input[type="email"], input[type="password"]').toggleClass('has-error').next('span').toggleClass('is-visible')
 }
 
 const onSignOutSuccess = () => {
@@ -31,7 +41,8 @@ const onSignOutSuccess = () => {
 
   $('.signin, .signup, #sign-in-form, #sign-up-form').show()
 
-  $('#sub-display').html(' ')
+  $('#sub-display, #home-display').html(' ')
+  $('#home-display').html('<div class="display"><h2>Goodbye!</h2></div>')
   $('#create-sub-form, .update-sub-form').addClass('hidden')
 
   store.user = null
@@ -46,6 +57,8 @@ const onChangePasswordSuccess = () => {
 }
 
 const onChangePasswordFailure = () => {
+  $('#change-pw-form').find('input[type="password"]').toggleClass('has-error').next('span').toggleClass('is-visible')
+
   $('form').trigger('reset')
 }
 

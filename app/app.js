@@ -2,6 +2,7 @@
 // const example = require('./example')
 const authEvents = require('./auth/events.js')
 const subEvents = require('./sub/events.js')
+const quotes = require('./sub/quotes.js')
 
 const $mainNav = $('.main-nav')
 const $userModal = $('.user-modal')
@@ -56,10 +57,13 @@ $(() => {
     $homeButton()
     $('#create-sub-form').toggleClass('hidden')
   })
+
   // home btn
+  $('#home-display').on('click', '#new-quote-btn', quotes.randomQuote)
+
   $('#home-btn').on('click', () => {
     $homeButton()
-    subEvents.onHomeScreen()
+    quotes.randomQuote()
   })
 
   // open modal
