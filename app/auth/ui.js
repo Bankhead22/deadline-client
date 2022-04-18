@@ -56,6 +56,9 @@ const onSignOutFailure = () => {
 const onChangePasswordSuccess = () => {
   $('form').trigger('reset')
   $('.user-modal').removeClass('is-visible')
+  $('#sub-display').html(
+		'<div class="display"><h2>Password change successful! Sign in to continue.</h2></div>'
+	)
 }
 
 const onChangePasswordFailure = () => {
