@@ -89,6 +89,7 @@ const onUpdateSubFailure = function () {
 }
 
 const onDeleteSubSuccess = function () {
+  $('#home-display').html('<h3>Deleted!</h3>')
   $('form').trigger('reset')
 }
 
