@@ -29,7 +29,7 @@ const showSubForm = function (event) {
 
 const onUpdateSub = function (event) {
   event.preventDefault()
-  const subId = $('.update-btn').data('id')
+  const subId = $(event.target).data('id')
   const form = event.target
   const data = getFormFields(form)
 

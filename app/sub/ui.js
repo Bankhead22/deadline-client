@@ -39,7 +39,7 @@ const onShowSubsSuccess = function (response) {
     <div class="centered-content">
     <button class="button delete-btn" data-id=${sub._id}>delete</button>
     <button class="button update-btn" data-id=${sub._id}>update</button>
-      <form id="update${sub._id}" class="update-sub-form form hidden">
+      <form id="update${sub._id}" data-id=${sub._id} class="update-sub-form form hidden">
         <p class="fieldset">
           <legend>Update subscription!</legend>
           <input type="text" class="full-width has-padding has-border" name="subscription[name]"
