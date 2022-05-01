@@ -7,7 +7,6 @@ const onSignUp = (event) => {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
 
   if (data.credentials.password !== data.credentials.password_confirmation) {
     // $('#auth-display').html('<p>Passwords do not match</p>')
@@ -24,7 +23,6 @@ const onSignIn = (event) => {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
 
   api
     .signIn(data)
