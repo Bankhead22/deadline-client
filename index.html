@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Deadline</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="centered-wrapper">
+      <h1 id="title">Deadline: Subscription Tracker</h1>
+  
+      <header role="banner">
+      
+
+        <!-- https://1stwebdesigner.com/open-source-modal-login-signup/ -->
+        <!-- Nav Bar with links -->
+        <nav class="main-nav">
+          <ul>
+            <!-- More links here -->
+            <li><a id="home-btn" href="#0">Home</a></li>
+            <li><a class="signin" href="#0">Sign in</a></li>
+            <li><a class="signup" href="#0">Sign up</a></li>
+            <!-- INDEX/Show all subs -->
+            <li><a id="show-subs"  href="#0">My Subs</a></li>
+            <!-- <li><a id="find-sub-form-btn"  href="#0">Find Sub</a></li> -->
+            <!-- CREATE sub -->
+            <li><a id="create-sub-form-btn"  href="#0">Create New Sub</a></li>
+            <!-- sign out/changepw btn -->
+            <li><a class=" changePw hidden" href="#0">Change Password</a></li>
+            <li><a id="signout-btn" href="#0">Sign out</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Entire modal, including the background -->
+      <div class="user-modal">
+
+        <!-- Container wrapper -->
+        <div class="user-modal-container">
+
+          <!-- Sign In/ New account switcher -->
+          <ul class="switcher">
+            <li><a href="#0">Sign in</a></li>
+            <li><a href="#0">New account</a></li>
+            <li><a class="changegPw" href="#0">Change Password</a></li>
+          </ul>
+
+          <!-- sign in form -->
+          <div id="signin">
+            
+            <form id= "sign-in-form" class="form">
+              <p class="fieldset">
+                <label class="image-replace email" for="signin-email">E-mail</label>
+                <input class="full-width has-padding has-border" id="signin-email" name="credentials[email]" type="email" placeholder="Email">
+                <span class="error-message">Incorrect username or password!</span>
+              </p>
+          
+              <p class="fieldset">
+                <label class="image-replace password" for="signin-password">Password</label>
+                <input class="full-width has-padding has-border" id="signin-password" name="credentials[password]" type="password" placeholder="Enter password">
+                <span class="error-message">Error while signing in!</span>
+              </p>
+              
+              <p class="fieldset">
+                <input id="sign-in-btn" class="full-width" type="submit" value="Login">
+              </p>
+              
+            </form>
+          
+            <a href="#0" class="close-form">Close</a>
+          </div> <!-- signin -->
+
+          <!-- sign up form -->
+          <div id="signup">
+            
+            <form id="sign-up-form" class="form">
+              <p class="fieldset">
+                <label class="image-replace email" for="signup-email">E-mail</label>
+                <input class="full-width has-padding has-border" id="signup-email" name="credentials[email]" type="email" placeholder="Email">
+                <span class="error-message">Error! Please try again!</span>
+              </p>
+          
+              <p class="fieldset">
+                <label class="image-replace password" for="signup-password">Password</label>
+                <input class="full-width has-padding has-border" id="signup-password" name="credentials[password]" type="password" placeholder="Enter password">
+                <span class="error-message">Error! Please try again!</span>
+              </p>
+          
+              <p class="fieldset">
+                <label class="image-replace password-confirmation" for="signup-password-confirmation">Password</label>
+                <input class="full-width has-padding has-border" id="signup-password-confirmation" name="credentials[password_confirmation]" type="password" placeholder="Re-enter password">
+                <span class="error-message">Error! Please try again!</span>
+              </p>
+          
+          
+              <p class="fieldset">
+                <input class="full-width has-padding" type="submit" value="Create account">
+              </p>
+            </form>
+          
+            <a href="#0" class="close-form">Close</a>
+          </div> <!-- signup -->
+
+          <!-- change password form -->
+          <div id="changePw">
+
+            <form id="change-pw-form" class="form">
+              
+              <p class="fieldset">
+                <label class="image-replace password" for="old-password"> Old password</label>
+                <input class="full-width has-padding has-border" id="old-password" name="passwords[old]" type="password"
+                  placeholder="Enter old password">
+                <span class="error-message">Passwords don't match!</span>
+              </p>
+
+              <p class="fieldset">
+                <label class="image-replace password-confirmation" for="new-password">New password</label>
+                <input class="full-width has-padding has-border" id="new-password"
+                  name="passwords[new]" type="password" placeholder="New password">
+                <span class="error-message">Passwords don't match!</span>
+              </p>
+
+              <p class="fieldset">
+                <input class="full-width has-padding" type="submit" value="Change password">
+              </p>
+            </form>
+
+            <a href="#0" class="close-form">Close</a>
+          </div> <!-- change pw -->
+
+          </div> <!-- user-modal-container -->
+
+          </div> <!-- user-modal -->
+
+
+        
+          <section id="home-display"></section>
+          
+          <section id="sub-display" >
+            <div class="display">
+              <p>
+                <h3>Just got charged for that random free trial you forgot to cancel? Well that was the last time! Sign up to get started tracking your subscriptions and never worry about forgetting again!
+
+                </h3>
+              </p>
+            </div>
+          </section>
+
+          <!-- create subscription form -->
+          
+           <!-- Create -->
+          <div class="centered-content">
+          <form id="create-sub-form" class="form hidden">
+
+            <p class="fieldset">
+              <legend>Add a subscription!</legend>
+              <input type="text" class="full-width has-padding has-border" name="subscription[name]" placeholder="Name of subscription">
+            </p>
+            
+            <p class="fieldset">
+             <input type="text" class="full-width has-padding has-border" name="subscription[price]" placeholder="price/month">
+            </p>
+
+            <p class="fieldset">
+              <input type="date" class="inline  has-padding has-border" name="subscription[start]">
+              <input type="date" class="has-padding has-border" name="subscription[end]" >
+            </p>
+
+            <p class="fieldset">
+              <input class="full-width has-padding has-border" name="subscription[notes]" type="text"  placeholder="comments">
+            </p>
+            
+            <p class="fieldset">
+              <input class="full-width has-padding" type="submit" name="submit" value="Create subscription!">
+            </p>
+          </form>
+          </div>
+        
+          <!-- Find By ID -->
+          <!-- <form id="find-sub-form" class="form hidden">
+      <p class="fieldset">
+        <legend>Find By Id</legend>
+        <label for="update-sub-id">Subscription ID:</label>
+        <input name="subscription[id]" type="text" class="full-width has-padding has-border" id="find-sub-id">
+      </p>
+    </form> -->
+
+          <!-- Update sub form
+
+            <div class="centered content">
+            <form class="update-sub-form form hidden">
+
+            <p class="fieldset">
+              <legend>Update subscription!</legend>
+              <input type="text" class="full-width has-padding has-border" name="subscription[name]"
+                placeholder="Name of subscription">
+            </p>
+            
+            <p class="fieldset">
+              <input type="text" class="full-width has-padding has-border" name="subscription[price]" placeholder="price/month">
+            </p>
+            
+            <p class="fieldset">
+              <input type="date" class="inline  has-padding has-border" name="subscription[start]">
+              <input type="date" class="has-padding has-border" name="subscription[end]">
+            </p>
+            
+            <p class="fieldset">
+              <input class="full-width has-padding has-border" name="subscription[notes]" type="text"
+                placeholder="comments">
+            </p>
+            
+            <p class="fieldset">
+              <input class="full-width has-padding" type="submit" name="submit" value="Create subscription!">
+            </p>
+            </form>
+    </div> -->
+          
+    
+  </body>
+</html>
